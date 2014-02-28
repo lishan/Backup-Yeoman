@@ -1,0 +1,23 @@
+{
+  "name": "getd",
+  "version": "0.0.1",
+  "authors": [
+    "Fred <lishan.yu@oracle.com>"
+  ],
+  "description": "Fred's gtd management web entrance",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+      "jquery" : "~1.9.0",
+      "bootstrap" : "~2.3.2",
+      "angular-latest" : "latest",
+      "angular-route" : "latest"
+  }
+}

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+    <title>this is a title</title>
+    <script data-main="javascripts/main.js" src="/node_modules/requirejs/require.js"></script>
+    <link rel="stylesheet" href="/bower_components/bootstrap/docs/assets/css/bootstrap.css">
+    <script type="text/javascript">
+        function a($scope, $element, $http) {
+            var p = $http({
+                method: 'GET',
+                url: '/'
+            });
+            p.success(function(res,status,headers,config){
+                $scope.model = res["user"];
+            })
+        }
+    </script>
+</head>
+<body>
+<div class="row-fluid">
+    <div class="span10 offset1">
+        <h1>I'm a header</h1>
+    </div>
+</div>
+<div class="row-fluid">
+    <div ng-controller="a" class="alert-danger span8 offset2">
+        <input type="text" ng-model="model"/>
+        {{model}}
+    </div>
+</div>
+</body>
+</html>
