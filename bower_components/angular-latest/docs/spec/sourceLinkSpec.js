@@ -16,14 +16,14 @@ describe('Docs Links', function() {
 
     it('should have an "improve this doc" button', function() {
       expect(doc.html()).
-        toContain('<a href="http://github.com/angular/angular.js/edit/master/test.js" class="improve-docs btn btn-primary"><i class="icon-edit"> </i> Improve this doc</a>');
+        toContain('<a href="http://github.com/angular/angular.js/edit/master/testMongodb.js" class="improve-docs btn btn-primary"><i class="icon-edit"> </i> Improve this doc</a>');
     });
 
     it('should have an "view source" button', function() {
       spyOn(gruntUtil, 'getVersion').andReturn({full: '1.2.299'});
 
       expect(doc.html()).
-        toContain('<a href="http://github.com/angular/angular.js/tree/v1.2.299/test.js#L42" class="view-source btn btn-action"><i class="icon-zoom-in"> </i> View source</a>');
+        toContain('<a href="http://github.com/angular/angular.js/tree/v1.2.299/testMongodb.js#L42" class="view-source btn btn-action"><i class="icon-zoom-in"> </i> View source</a>');
     });
   });
 

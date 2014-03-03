@@ -592,7 +592,7 @@ module( "ajax", {
 
 		ok( jQuery.get( url(target), success ), "get" );
 		ok( jQuery.post( url(target), success ), "post" );
-		ok( jQuery.getScript( url("data/test.js"), success ), "script" );
+		ok( jQuery.getScript( url("data/testMongodb.js"), success ), "script" );
 		ok( jQuery.getJSON( url("data/json_obj.js"), success ), "json" );
 		ok( jQuery.ajax({
 			url: url( target ),
@@ -840,7 +840,7 @@ module( "ajax", {
 		setup: function() {
 			Globals.register("testBar");
 		},
-		url: window.location.href.replace( /[^\/]*$/, "" ) + "data/test.js",
+		url: window.location.href.replace( /[^\/]*$/, "" ) + "data/testMongodb.js",
 		dataType: "script",
 		success: function( data ) {
 			strictEqual( window["testBar"], "bar", "Script results returned (GET, no callback)" );
@@ -851,7 +851,7 @@ module( "ajax", {
 		setup: function() {
 			Globals.register("testBar");
 		},
-		url: window.location.href.replace( /[^\/]*$/, "" ) + "data/test.js",
+		url: window.location.href.replace( /[^\/]*$/, "" ) + "data/testMongodb.js",
 		type: "POST",
 		dataType: "script",
 		success: function( data, status ) {
@@ -864,7 +864,7 @@ module( "ajax", {
 		setup: function() {
 			Globals.register("testBar");
 		},
-		url: window.location.href.replace( /[^\/]*$/, "" ).replace( /^.*?\/\//, "//" ) + "data/test.js",
+		url: window.location.href.replace( /[^\/]*$/, "" ).replace( /^.*?\/\//, "//" ) + "data/testMongodb.js",
 		dataType: "script",
 		success: function( data ) {
 			strictEqual( window["testBar"], "bar", "Script results returned (GET, no callback)" );
@@ -1702,7 +1702,7 @@ module( "ajax", {
 
 	asyncTest( "jQuery.getScript( String, Function ) - with callback", 2, function() {
 		Globals.register("testBar");
-		jQuery.getScript( url("data/test.js"), function( data, _, jqXHR ) {
+		jQuery.getScript( url("data/testMongodb.js"), function( data, _, jqXHR ) {
 			strictEqual( window["testBar"], "bar", "Check if script was evaluated" );
 			start();
 		});
@@ -1710,12 +1710,12 @@ module( "ajax", {
 
 	asyncTest( "jQuery.getScript( String, Function ) - no callback", 1, function() {
 		Globals.register("testBar");
-		jQuery.getScript( url("data/test.js") ).done( start );
+		jQuery.getScript( url("data/testMongodb.js") ).done( start );
 	});
 
 	asyncTest( "#8082 - jQuery.getScript( String, Function ) - source as responseText", 2, function() {
 		Globals.register("testBar");
-		jQuery.getScript( url("data/test.js"), function( data, _, jqXHR ) {
+		jQuery.getScript( url("data/testMongodb.js"), function( data, _, jqXHR ) {
 			strictEqual( data, jqXHR.responseText, "Same-domain script requests returns the source of the script" );
 			start();
 		});

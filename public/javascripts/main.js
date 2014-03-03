@@ -5,5 +5,6 @@
  */
 require(['/bower_components/angular/angular.min.js',
     '/bower_components/jquery/jquery.min.js',
-    '/bower_components/bootstrap/docs/assets/js/bootstrap.min.js'
+    '/bower_components/bootstrap/docs/assets/js/bootstrap.min.js',
+    '/javascripts/test.js'
 ]);

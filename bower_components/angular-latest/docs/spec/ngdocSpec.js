@@ -388,7 +388,7 @@ describe('ngdoc', function() {
       it('should not parse @property without a type', function() {
         var doc = new Doc("@property fake", 'test.js', '44');
         expect(function() { doc.parse(); }).
-          toThrow(new Error("Not a valid 'property' format: fake (found in: test.js:44)"));
+          toThrow(new Error("Not a valid 'property' format: fake (found in: testMongodb.js:44)"));
       });
 
       it('should parse @property with type', function() {
@@ -426,7 +426,7 @@ describe('ngdoc', function() {
       it('should not parse @returns with invalid type', function() {
         var doc = new Doc("@returns {xx}x} lala", 'test.js', 34);
         expect(function() { doc.parse(); }).
-            toThrow(new Error("Not a valid 'returns' format: {xx}x} lala (found in: test.js:34)"));
+            toThrow(new Error("Not a valid 'returns' format: {xx}x} lala (found in: testMongodb.js:34)"));
       });
 
 

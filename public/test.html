@@ -1,20 +1,9 @@
 <!DOCTYPE html>
-<html ng-app>
+<html ng-app="myApp">
 <head>
     <title>this is a title</title>
     <script data-main="javascripts/main.js" src="/node_modules/requirejs/require.js"></script>
     <link rel="stylesheet" href="/bower_components/bootstrap/docs/assets/css/bootstrap.css">
-    <script type="text/javascript">
-        function a($scope, $element, $http) {
-            var p = $http({
-                method: 'GET',
-                url: '/'
-            });
-            p.success(function(res,status,headers,config){
-                $scope.model = res["user"];
-            })
-        }
-    </script>
 </head>
 <body>
 <div class="row-fluid">

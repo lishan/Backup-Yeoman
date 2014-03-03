@@ -1,21 +1,14 @@
 /**
  * User: fred
- * Date: 2/28/14
- * Time: 10:31 PM
+ * Date: 3/3/14
+ * Time: 11:12 AM
  */
-var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/test');
-
-var db = mongoose.connection;
-db.on('error',console.error.bind(console,'connection error'));
-db.once('open', function callback(){
-    //yeah
-});
-
-var schema = new mongoose.Schema({name : 'string'});
-var Tank = mongoose.model('Tank',schema);
-
-var first = new Tank({name : "12345"});
-first.save(function(err){
-    if(err) console.log(err);
-});
+var app = angular.module("myApp",[]);
+app.controller("a",['$scope','$http',function($scope,$http){
+    var p = $http({
+        method: 'GET',
+        url: '/'
+    }).success(function(res,status,headers,config){
+            $scope.model = res["user"];
+        });
+}]);
