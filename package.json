@@ -8,7 +8,10 @@
   "dependencies": {
     "express": "3.4.8",
     "jade": "*",
-    "mongoose" : "3.8.8",
-    "requirejs" : "latest"
+    "mongoose": "3.8.8",
+    "requirejs": "latest"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.2"
   }
 }
