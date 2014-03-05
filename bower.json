@@ -15,9 +15,10 @@
     "tests"
   ],
   "dependencies": {
-      "jquery" : "~1.9.0",
-      "bootstrap" : "~2.3.2",
+      "jquery" : "latest",
+      "bootstrap" : "latest",
       "angular" : "latest",
-      "angular-route" : "latest"
+      "angular-route" : "latest",
+      "requirejs": "latest"
   }
 }
