@@ -5,8 +5,8 @@
  * This is mainly config backend route file for express module
  */
 function main(app){
-    app.get('/',function(res,req){
-        req.json({
+    app.get('/',function(req,res){
+        res.json({
             user    :   "title"
         });
     });

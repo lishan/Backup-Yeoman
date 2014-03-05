@@ -33,8 +33,8 @@ if ('development' == app.get('env')) {
 }
 
 // backend route to fetch json data, do not use template
-var route = require('./routes/main');
-route.main(app);
+require('./routes/main').main(app);
+require('./routes/register').register(app);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

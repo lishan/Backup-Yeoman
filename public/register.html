@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html ng-app="register" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<head>
+    <title>Register</title>
+    <link rel="stylesheet" href="stylesheets/bootstrap.min.css">
+    <link rel="stylesheet" href="stylesheets/bootswatch.min.css">
+    <script src="/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="/bower_components/angular/angular.min.js"></script>
+    <script src="/bower_components/angular-route/angular-route.min.js"></script>
+    <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="javascripts/register.js"></script>
+</head>
+<body>
+<div class="container" ng-controller="registerForm">
+    <div ng-include="'layout/header.html'" style="margin-bottom: 50px;"></div>
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2 alert" ng-class="showRegisterStatusClass" ng-show="registerPanel">
+            {{showRegisterStatus}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2 bs-component well" ng-hide="formPanel">
+            <form class="form-horizontal" ng-submit="submit()">
+                <fieldset>
+                    <legend>Register your information</legend>
+                    <div class="form-group" ng-class="styleEmailError">
+                        <label class="col-md-3 control-label">Email</label>
+                        <div class="col-md-6">
+                            <input type="input" class="form-control" placeholder="email" ng-model="styleEmail" ng-change="changeEmail()"/>
+                        </div>
+                        <div ng-show="styleEmailEmpty" class="col-md-3 text-danger">
+                            Please input your email.
+                        </div>
+                        <div ng-show="styleEmailNotMatch" class="col-md-3 text-danger">
+                            Email pattern error, please use /.*@.*/.
+                        </div>
+                    </div>
+                    <div class="form-group" ng-class="stylePassError">
+                        <label class="col-md-3 control-label">Password</label>
+                        <div class="col-md-6">
+                            <input type="password" class="form-control" ng-model="stylePass" ng-change="changePass()"/>
+                        </div>
+                        <div ng-show="stylePassShort" class="col-md-3 text-danger">
+                            Password is too short, length must be larger than six.
+                        </div>
+                    </div>
+                    <div class="form-group" ng-class="styleConfirmPassError">
+                        <label class="col-md-3 control-label">Confirm Password</label>
+                        <div class="col-md-6">
+                            <input type="password" class="form-control" ng-model="styleConfirmPass" ng-change="changeConfirmPass()"/>
+                        </div>
+                        <div ng-show="styleConfirmPassNotMatch" class="col-md-3 text-danger">
+                            Confirm password should be same with password.
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-5 col-md-offset-3">
+                            <button class="btn btn-info" type="submit">Sumbit</button>
+                            <button class="btn btn-info" type="reset">Reset</button>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+    <div data-ng-include="'layout/footer.html'"></div>
+</div>
+</body>
+</html>
