@@ -6,8 +6,8 @@
 var mongoose = require('mongoose');
 var model = mongoose.model('people', {email: 'string', password: 'string'});
 function register(app){
-    app.get('/action/register',function(req,res){
-        var email = req.query.email,pass = req.query.pass;
+    app.post('/action/register',function(req,res){
+        var email = req.body.email,pass = req.body.pass;
         mongoose.connect('mongodb://localhost:27017/getd');
         model.create({email : email, password : pass},function(err){
             if(err){
@@ -17,10 +17,13 @@ function register(app){
             res.send(200,"correct");
         });
     });
-    app.get('/action/findUser',function(req,res){
-        var email = req.query.email;
+    app.post('/action/findUser',function(req,res){
+        var email = req.body.email;
         mongoose.connect('mongodb://localhost:27017/getd');
         model.findOne({email : email}).select('email').exec(function(err,user){
+            if(err){
+                console.log(err);
+            }
             mongoose.connection.close();
             if(!user){
                 res.json({ response : true});

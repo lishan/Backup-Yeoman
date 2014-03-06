@@ -20,9 +20,6 @@ app.controller("registerForm",['$scope','$http',function($scope,$http){
             $scope.styleEmailNotMatch = false;
         }
     };
-    $scope.stylePassError = "";
-    $scope.stylePass = "";
-    $scope.stylePassShort = false;
     $scope.changePass = function(){
         if($scope.stylePass.length < 6){
             $scope.stylePassError = "has-error";
@@ -32,9 +29,6 @@ app.controller("registerForm",['$scope','$http',function($scope,$http){
             $scope.stylePassShort = false;
         }
     };
-    $scope.styleConfirmPassError = "";
-    $scope.styleConfirmPass = "";
-    $scope.styleConfirmPassNotMatch = false;
     $scope.changeConfirmPass = function(){
         if($scope.stylePass != $scope.styleConfirmPass){
             $scope.styleConfirmPassError = "has-error";
@@ -47,13 +41,21 @@ app.controller("registerForm",['$scope','$http',function($scope,$http){
     $scope.submit = function(){
         if($scope.styleEmailError == "" && $scope.stylePassError == "" && $scope.styleConfirmPassError == ""){
             $http({
-                method:'GET',
-                url:'/action/findUser?email='+$scope.styleEmail
+                method:'POST',
+                url:'/action/findUser',
+                data:{
+                    email:$scope.styleEmail,
+                    pass:$scope.stylePass
+                }
             }).success(function(res){
                 if(res.response){
                     $http({
-                        method: 'GET',
-                        url: '/action/register?email='+$scope.styleEmail+'&pass='+$scope.stylePass
+                        method: 'POST',
+                        url: '/action/register',
+                        data:{
+                            email:$scope.styleEmail,
+                            pass:$scope.stylePass
+                        }
                     }).success(function (res) {
                         $scope.showRegisterStatusClass = "alert-success";
                         $scope.showRegisterStatus = "Congratulations! Register completed!";

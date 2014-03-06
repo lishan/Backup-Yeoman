@@ -21,6 +21,8 @@ app.use(express.json());
 app.use(express.urlencoded());
 app.use(express.methodOverride());
 app.use(app.router);
+app.use(express.cookieParser('Fred Collaborate'));
+app.use(express.cookieSession());
 
 //Set default module public and insert lib into node_modules and bower_components directory
 app.use('/',express.static(path.join(__dirname, 'public')));
