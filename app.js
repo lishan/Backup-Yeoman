@@ -14,6 +14,9 @@ app.set('views', path.join(__dirname, 'views'));
 
 // Don't use jade template engine, just html will be OK for angular page usage
 //app.set('view engine', 'jade');
+// Must be before other use function like app.router
+app.use(express.cookieParser('Fred Collaborate'));
+app.use(express.cookieSession());
 
 app.use(express.favicon());
 app.use(express.logger('dev'));
@@ -21,8 +24,7 @@ app.use(express.json());
 app.use(express.urlencoded());
 app.use(express.methodOverride());
 app.use(app.router);
-app.use(express.cookieParser('Fred Collaborate'));
-app.use(express.cookieSession());
+
 
 //Set default module public and insert lib into node_modules and bower_components directory
 app.use('/',express.static(path.join(__dirname, 'public')));

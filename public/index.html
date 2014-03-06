@@ -8,9 +8,7 @@
     <script src="/bower_components/angular/angular.min.js"></script>
     <script src="/bower_components/angular-route/angular-route.min.js"></script>
     <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script type="text/javascript">
-        angular.module('myApp', ['ngRoute']);
-    </script>
+    <script src="javascripts/header.js"></script>
 </head>
 <body>
 <div class="container">
@@ -25,6 +23,7 @@
             <div class="bs-component">
                 <div class="jumbotron">
                     <p>Try this time management software!</p>
+
                     <p>
                         <button class="btn btn-info btn-lg">Learn More</button>
                     </p>
@@ -32,7 +31,7 @@
             </div>
         </div>
     </div>
-    <div data-ng-include="'layout/footer.html'"></div>
+    <div ng-include="'layout/footer.html'"></div>
 </div>
 </body>
 </html>

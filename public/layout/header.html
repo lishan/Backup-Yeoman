@@ -1,5 +1,5 @@
 <header>
-    <div class="navbar navbar-fixed-top" role="navigation">
+    <div class="navbar navbar-fixed-top" role="navigation" ng-controller="nav" ng-init="init()">
         <div class="container">
             <div class="navbar-header">
                 <a class="navbar-brand" href="../index.html">Getd management</a>
@@ -23,8 +23,16 @@
                         <!--</ul>-->
                     <!--</li>-->
                 </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#">Logout</a></li>
+                <ul class="nav navbar-nav navbar-right" ng-hide="loginUser">
+                    <li><a href="../login.html">Login</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right" ng-show="loginUser">
+                    <li>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{user}}</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#" data-ng-click="logout()">Logout</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
         </div>

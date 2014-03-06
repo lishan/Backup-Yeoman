@@ -3,7 +3,6 @@
  * Date: 3/5/14
  * Time: 4:19 PM
  */
-var app = angular.module("register",['ngRoute']);
 app.controller("registerForm",['$scope','$http',function($scope,$http){
     $scope.reset = function(){
         $scope.data = {};

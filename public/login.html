@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <title>Software main page</title>
+    <link rel="stylesheet" href="stylesheets/bootstrap.min.css">
+    <link rel="stylesheet" href="stylesheets/bootswatch.min.css">
+    <script src="/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="/bower_components/angular/angular.min.js"></script>
+    <script src="/bower_components/angular-route/angular-route.min.js"></script>
+    <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="javascripts/header.js"></script>
+    <script type="text/javascript">
+        app.controller('loginForm', ['$scope', '$http', function ($scope, $http) {
+            $scope.submit = function () {
+                if ($scope.data.email && $scope.data.pass) {
+                    $http({
+                        method: "POST",
+                        url: "/action/login",
+                        data: {email: $scope.data.email, pass: $scope.data.pass}
+                    }).success(function (res) {
+                                if (res.response) {
+                                    location.href = "/index.html";
+                                } else {
+                                    $scope.data.loginErrorMessage = "User name or password are not correct!" + $scope.data.email;
+                                    $scope.data.loginErrorClass = "alert-warning";
+                                    $scope.data.loginError = "true";
+                                }
+                            });
+                } else {
+                    $scope.data.loginErrorMessage = "Invalid email address or password, can not be null!";
+                    $scope.data.loginErrorClass = "alert-danger";
+                    $scope.data.loginError = "true";
+                }
+            };
+            $scope.changeEmail = function () {
+                if ($scope.data.email) {
+                    $http({
+                        method: "POST",
+                        url: "/action/findUser",
+                        data: {email: $scope.data.email}
+                    }).success(function (res) {
+                                $scope.data.showEmailError = true;
+                                if(!res.response){
+                                    $scope.data.emailLabel = "label-success";
+                                    $scope.data.emailMessage = "correct";
+                                }else{
+                                    $scope.data.emailLabel = "label-danger";
+                                    $scope.data.emailMessage = "Incorrect";
+                                }
+                            });
+                }
+            }
+        }]);
+    </script>
+</head>
+<body>
+<div class="container" ng-controller="loginForm">
+    <div ng-include="'layout/header.html'" style="margin-bottom: 50px;"></div>
+    <div class="row" ng-show="data.loginError">
+        <div class="col-md-8 col-md-offset-2 alert" ng-class="data.loginErrorClass">
+            {{data.loginErrorMessage}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="well col-md-8 col-md-offset-2">
+            <form class="form-horizontal" ng-submit="submit()">
+                <fieldset>
+                    <div class="form-group">
+                        <label class="control-label col-md-2">Email </label>
+
+                        <div class="col-md-6">
+                            <input type="input" class="form-control" placeholder="email" ng-model="data.email"
+                                   ng-change="changeEmail()"/>
+                        </div>
+                        <div ng-show="data.showEmailError" class="col-md-4">
+                            <span class="label" ng-class="data.emailLabel">{{data.emailMessage}}</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-2">Password </label>
+
+                        <div class="col-md-6">
+                            <input type="password" class="form-control" ng-model="data.pass"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-5">
+                            <button type="submit" class="btn btn-info">Submit</button>
+                            <button type="reset" class="btn-info btn">Reset</button>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+    <div data-ng-include="'layout/footer.html'"></div>
+</div>
+</body>
+</html>
