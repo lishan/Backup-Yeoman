@@ -21,6 +21,6 @@ require.config({
     }
 });
 
-require(['jquery','bootstrap','angular','angular-route'],function(){
+require(['jquery','../../.','angular','angular-route'],function(){
     console.log('Require js load module completed.');
 });

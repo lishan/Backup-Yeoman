@@ -6,12 +6,6 @@
  */
 var mongoose = require('mongoose');
 var local = 'mongodb://localhost:27017/getd';
-exports.connect = function(){
+module.exports = function(){
     mongoose.connect(local);
-}
-exports.close = function(){
-    mongoose.connection.close();
-}
-exports.mongoose = function(){
-    return mongoose;
 }

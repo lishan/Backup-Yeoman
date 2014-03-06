@@ -14,49 +14,49 @@
 <div class="container" ng-controller="registerForm">
     <div ng-include="'layout/header.html'" style="margin-bottom: 50px;"></div>
     <div class="row">
-        <div class="col-md-8 col-md-offset-2 alert" ng-class="showRegisterStatusClass" ng-show="registerPanel">
-            {{showRegisterStatus}}
+        <div class="col-md-8 col-md-offset-2 alert" ng-class="data.showRegisterStatusClass" ng-show="data.registerPanel">
+            {{data.showRegisterStatus}}
         </div>
     </div>
     <div class="row">
-        <div class="col-md-8 col-md-offset-2 bs-component well" ng-hide="formPanel">
+        <div class="col-md-8 col-md-offset-2 bs-component well" ng-hide="data.formPanel">
             <form class="form-horizontal" ng-submit="submit()">
                 <fieldset>
                     <legend>Register your information</legend>
-                    <div class="form-group" ng-class="styleEmailError">
+                    <div class="form-group" ng-class="data.styleEmailError">
                         <label class="col-md-3 control-label">Email</label>
                         <div class="col-md-6">
-                            <input type="input" class="form-control" placeholder="email" ng-model="styleEmail" ng-change="changeEmail()"/>
+                            <input type="input" class="form-control" placeholder="email" ng-model="data.styleEmail" ng-change="changeEmail()"/>
                         </div>
-                        <div ng-show="styleEmailEmpty" class="col-md-3 text-danger">
+                        <div ng-show="data.styleEmailEmpty" class="col-md-3 text-danger">
                             Please input your email.
                         </div>
-                        <div ng-show="styleEmailNotMatch" class="col-md-3 text-danger">
+                        <div ng-show="data.styleEmailNotMatch" class="col-md-3 text-danger">
                             Email pattern error, please use /.*@.*/.
                         </div>
                     </div>
-                    <div class="form-group" ng-class="stylePassError">
+                    <div class="form-group" ng-class="data.stylePassError">
                         <label class="col-md-3 control-label">Password</label>
                         <div class="col-md-6">
-                            <input type="password" class="form-control" ng-model="stylePass" ng-change="changePass()"/>
+                            <input type="password" class="form-control" ng-model="data.stylePass" ng-change="changePass()"/>
                         </div>
-                        <div ng-show="stylePassShort" class="col-md-3 text-danger">
+                        <div ng-show="data.stylePassShort" class="col-md-3 text-danger">
                             Password is too short, length must be larger than six.
                         </div>
                     </div>
-                    <div class="form-group" ng-class="styleConfirmPassError">
+                    <div class="form-group" ng-class="data.styleConfirmPassError">
                         <label class="col-md-3 control-label">Confirm Password</label>
                         <div class="col-md-6">
-                            <input type="password" class="form-control" ng-model="styleConfirmPass" ng-change="changeConfirmPass()"/>
+                            <input type="password" class="form-control" ng-model="data.styleConfirmPass" ng-change="changeConfirmPass()"/>
                         </div>
-                        <div ng-show="styleConfirmPassNotMatch" class="col-md-3 text-danger">
+                        <div ng-show="data.styleConfirmPassNotMatch" class="col-md-3 text-danger">
                             Confirm password should be same with password.
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-md-5 col-md-offset-3">
                             <button class="btn btn-info" type="submit">Sumbit</button>
-                            <button class="btn btn-info" type="reset">Reset</button>
+                            <button class="btn btn-info" type="reset" ng-click="reset()">Reset</button>
                         </div>
                     </div>
                 </fieldset>

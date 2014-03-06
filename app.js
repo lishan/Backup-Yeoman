@@ -6,6 +6,7 @@ var express = require('express');
 var http = require('http');
 var path = require('path');
 var app = express();
+var mongoose = require('mongoose');
 
 // all environments
 app.set('port', process.env.PORT || 3000);
@@ -34,8 +35,9 @@ if ('development' == app.get('env')) {
 }
 
 // backend route to fetch json data, do not use template
+require('./routes/mongoose/mongooseUtil')();
 require('./routes/main')(app);
-require('./routes/register')(app);
+require('./routes/register')(app,mongoose);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
