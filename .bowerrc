@@ -1,0 +1,5 @@
+{
+	"proxy"	:	"http://cn-proxy.cn.oracle.com:80",
+	"https-proxy"	:	"http://cn-proxy.cn.oracle.com:80",
+	"strict-ssl": false
+}
