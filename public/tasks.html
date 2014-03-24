@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <title>Software main page</title>
+    <link rel="stylesheet" href="stylesheets/bootstrap.min.css">
+    <link rel="stylesheet" href="stylesheets/bootswatch.min.css">
+    <script src="/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="/bower_components/angular/angular.min.js"></script>
+    <script src="/bower_components/angular-route/angular-route.min.js"></script>
+    <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="javascripts/header.js"></script>
+    <script src="javascripts/tasks.js"></script>
+</head>
+<body>
+<div class="container">
+    <div ng-include="'layout/header.html'" style="margin-bottom: 50px;"></div>
+    <div class="row" data-ng-controller="tasks">
+        <div class="form-group">
+            <label class="control-label">Tasks </label>
+
+            <div class="input-group">
+                <span class="input-group-addon">Input your tasks</span>
+                <input type="text" class="form-control" ng-model="task" ng-change="change()"/>
+            </div>
+        </div>
+    </div>
+    <div ng-include="'layout/footer.html'"></div>
+</div>
+</body>
+</html>

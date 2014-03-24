@@ -6,8 +6,6 @@
  */
 module.exports = function(app){
     app.get('/',function(req,res){
-        res.json({
-            user    :   "title"
-        });
+        res.redirect("/index.html");
     });
 }
