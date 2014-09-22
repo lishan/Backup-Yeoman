@@ -1,85 +1,86 @@
 <!DOCTYPE html>
 <html ng-app="myApp" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
 <head>
-    <title>Register</title>
-    <link rel="stylesheet" href="stylesheets/bootstrap.min.css">
-    <link rel="stylesheet" href="stylesheets/bootswatch.min.css">
-    <script src="/bower_components/jquery/dist/jquery.min.js"></script>
-    <script src="/bower_components/angular/angular.min.js"></script>
-    <script src="/bower_components/angular-route/angular-route.min.js"></script>
-    <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="javascripts/header.js"></script>
-    <script src="javascripts/register.js"></script>
+  <title>Register</title>
+  <link rel="stylesheet" href="stylesheets/bootstrap.min.css">
+  <link rel="stylesheet" href="stylesheets/bootswatch.min.css">
+  <script src="/bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="/bower_components/angular/angular.min.js"></script>
+  <script src="/bower_components/angular-route/angular-route.min.js"></script>
+  <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="javascripts/header.js"></script>
+  <script src="javascripts/register.js"></script>
 </head>
 <body>
 <div class="container">
-    <div ng-include="'layout/header.html'" style="margin-bottom: 50px;"></div>
-    <div ng-controller="registerForm">
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 alert" ng-class="data.showRegisterStatusClass"
-                 ng-show="data.registerPanel">
-                <p>
-                    {{data.showRegisterStatus}}
-                </p>
-                <p ng-show="data.formPanel" style="margin-top: 10px;">
-                    <a href="./index.html" class="btn btn-info">Back</a>
-                </p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 bs-component well" ng-hide="data.formPanel">
-                <form class="form-horizontal" ng-submit="submit()">
-                    <fieldset>
-                        <legend>Register your information</legend>
-                        <div class="form-group" ng-class="data.styleEmailError">
-                            <label class="col-md-3 control-label">Email</label>
+  <div ng-include="'layout/header.html'" style="margin-bottom: 50px;"></div>
+  <div ng-controller="registerForm">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2 alert" ng-class="data.showRegisterStatusClass"
+           ng-show="data.registerPanel">
+        <p>
+          {{data.showRegisterStatus}}
+        </p>
 
-                            <div class="col-md-6">
-                                <input type="input" class="form-control" placeholder="email"
-                                       ng-model="data.styleEmail"
-                                       ng-change="changeEmail()"/>
-                            </div>
-                            <div ng-show="data.styleEmailEmpty" class="col-md-3 text-danger">
-                                Please input your email.
-                            </div>
-                            <div ng-show="data.styleEmailNotMatch" class="col-md-3 text-danger">
-                                Email pattern error, please use /.*@.*/.
-                            </div>
-                        </div>
-                        <div class="form-group" ng-class="data.stylePassError">
-                            <label class="col-md-3 control-label">Password</label>
-
-                            <div class="col-md-6">
-                                <input type="password" class="form-control" ng-model="data.stylePass"
-                                       ng-change="changePass()"/>
-                            </div>
-                            <div ng-show="data.stylePassShort" class="col-md-3 text-danger">
-                                Password is too short, length must be larger than six.
-                            </div>
-                        </div>
-                        <div class="form-group" ng-class="data.styleConfirmPassError">
-                            <label class="col-md-3 control-label">Confirm Password</label>
-
-                            <div class="col-md-6">
-                                <input type="password" class="form-control" ng-model="data.styleConfirmPass"
-                                       ng-change="changeConfirmPass()"/>
-                            </div>
-                            <div ng-show="data.styleConfirmPassNotMatch" class="col-md-3 text-danger">
-                                Confirm password should be same with password.
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-md-5 col-md-offset-3">
-                                <button class="btn btn-info" type="submit">Submit</button>
-                                <button class="btn btn-info" type="reset" ng-click="reset()">Reset</button>
-                            </div>
-                        </div>
-                    </fieldset>
-                </form>
-            </div>
-        </div>
+        <p ng-show="data.formPanel" style="margin-top: 10px;">
+          <a href="./index.html" class="btn btn-info">Back</a>
+        </p>
+      </div>
     </div>
-    <div data-ng-include="'layout/footer.html'"></div>
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2 bs-component well" ng-hide="data.formPanel">
+        <form class="form-horizontal" ng-submit="submit()">
+          <fieldset>
+            <legend>Register your information</legend>
+            <div class="form-group" ng-class="data.styleEmailError">
+              <label class="col-md-3 control-label">Email</label>
+
+              <div class="col-md-6">
+                <input type="input" class="form-control" placeholder="email"
+                       ng-model="data.styleEmail"
+                       ng-change="changeEmail()"/>
+              </div>
+              <div ng-show="data.styleEmailEmpty" class="col-md-3 text-danger">
+                Please input your email.
+              </div>
+              <div ng-show="data.styleEmailNotMatch" class="col-md-3 text-danger">
+                Email pattern error, please use /.*@.*/.
+              </div>
+            </div>
+            <div class="form-group" ng-class="data.stylePassError">
+              <label class="col-md-3 control-label">Password</label>
+
+              <div class="col-md-6">
+                <input type="password" class="form-control" ng-model="data.stylePass"
+                       ng-change="changePass()"/>
+              </div>
+              <div ng-show="data.stylePassShort" class="col-md-3 text-danger">
+                Password is too short, length must be larger than six.
+              </div>
+            </div>
+            <div class="form-group" ng-class="data.styleConfirmPassError">
+              <label class="col-md-3 control-label">Confirm Password</label>
+
+              <div class="col-md-6">
+                <input type="password" class="form-control" ng-model="data.styleConfirmPass"
+                       ng-change="changeConfirmPass()"/>
+              </div>
+              <div ng-show="data.styleConfirmPassNotMatch" class="col-md-3 text-danger">
+                Confirm password should be same with password.
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-md-5 col-md-offset-3">
+                <button class="btn btn-info" type="submit">Submit</button>
+                <button class="btn btn-info" type="reset" ng-click="reset()">Reset</button>
+              </div>
+            </div>
+          </fieldset>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div data-ng-include="'layout/footer.html'"></div>
 </div>
 </body>
 </html>

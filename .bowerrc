@@ -1,3 +1,5 @@
 {
-	"strict-ssl": false
+	"strict-ssl": false,
+	"proxy": "http://proxy.wdf.sap.corp:8080",
+	"https-proxy": "http://proxy.wdf.sap.corp:8080"
 }
